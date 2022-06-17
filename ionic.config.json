@@ -1,0 +1,7 @@
+{
+  "name": "ionic-cypress-clock",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
