@@ -1,5 +1,5 @@
 <template>
-  <ion-page>
+  <ion-page v-bind="$attrs">
     <ion-header>
       <ion-toolbar>
         <ion-title>Tab 1</ion-title>
@@ -11,19 +11,21 @@
           <ion-title size="large">Tab 1</ion-title>
         </ion-toolbar>
       </ion-header>
-    
+
+      <ion-button @click="isOpen = true">Open modal</ion-button>
       <ExploreContainer name="Tab 1 page" />
     </ion-content>
   </ion-page>
+
+  <ion-modal :is-open="isOpen">
+    <ion-content> Modal content </ion-content>
+  </ion-modal>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+<script lang="ts" setup>
+import { IonButton, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonModal } from "@ionic/vue";
+import { ref } from "vue";
+import ExploreContainer from "@/components/ExploreContainer.vue";
 
-export default  defineComponent({
-  name: 'Tab1Page',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
-});
+const isOpen = ref(false);
 </script>

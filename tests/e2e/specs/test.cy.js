@@ -5,5 +5,9 @@ describe('My First Test', () => {
     cy.clock();
     cy.visit('/')
     cy.contains('ion-content', 'Tab 1 page')
+
+    cy.get('ion-button:contains("Open modal")').click();
+
+    cy.contains('Modal content');
   })
 })
