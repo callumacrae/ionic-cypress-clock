@@ -18,7 +18,13 @@
   </ion-page>
 
   <ion-modal :is-open="isOpen">
-    <ion-content> Modal content </ion-content>
+    <ion-content>
+      <h1>Select a date</h1>
+      <v-date-picker v-model="date" />
+      <p v-if="date" data-test="output">
+        You selected {{ date.toISOString() }}.
+      </p>
+    </ion-content>
   </ion-modal>
 </template>
 
@@ -28,4 +34,5 @@ import { ref } from "vue";
 import ExploreContainer from "@/components/ExploreContainer.vue";
 
 const isOpen = ref(false);
+const date = ref<Date>();
 </script>

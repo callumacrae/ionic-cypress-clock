@@ -2,12 +2,14 @@
 
 describe('My First Test', () => {
   it('Visits the app root url', () => {
-    cy.clock();
+    // cy.clock(1655887663000);
     cy.visit('/')
     cy.contains('ion-content', 'Tab 1 page')
 
     cy.get('ion-button:contains("Open modal")').click();
 
-    cy.contains('Modal content');
+    cy.get('.vc-day.day-23').click();
+
+    cy.get('[data-test="output"]').should('contain', 'You selected 2022-06-23');
   })
 })
